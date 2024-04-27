@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DOCTYPE에 대한 설정,
+	오류나면 prefrence에 xml검색해서 (wild web developer)에서 다운로드 dtd누르기
+ -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- configuration태그를 root -->
+<configuration>
+	<environments default="production">
+		<!-- DB접속완경설정
+			 enviroment태그를 가짐
+		 -->
+		 <environment id="production">
+		 <!-- 특정 DB접속에 대한 설정, id로 나눠둠
+		 	  트랜잭션에 대한 설정, 접속연결정보(dataseource)
+		  -->
+		  	<transactionManager type="JDBC"/>
+		  	<dataSource type="POOLED">
+		  		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		  		<property name="url" value="jdbc:oracle:thin:@14.36.141.71:8877:xe"/>
+		  		<property name="username" value="web"/>
+		  		<property name="password" value="web"/>
+		  	</dataSource>
+		 </environment>
+		 <environment id="dev">
+		 <!-- 특정 DB접속에 대한 설정
+		 	  트랜잭션에 대한 설정, 접속연결정보(datasource)
+		  -->
+		  	<transactionManager type="JDBC"/>
+		  	<dataSource type="POOLED">
+		  		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		  		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		  		<property name="username" value="web"/>
+		  		<property name="password" value="web"/>
+		  	</dataSource>
+		 </environment>
+	</environments>
+	<!-- 생성한 mapper파일을 등록 -->
+	<mappers>
+		<mapper resource="/mapper/student/student-mapper.xml"/>
+		
+	</mappers>
+</configuration>

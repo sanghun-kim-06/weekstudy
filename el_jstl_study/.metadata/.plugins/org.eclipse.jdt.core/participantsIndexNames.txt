@@ -1,0 +1,15 @@
+INDEX VERSION 1.134
+D:\work30902\el_jstl_study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1673392229.index
+\el_jstl\src\main\java
+D:\work30902\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1673392229.index
+\el_jstl\src\main\java
+D:\work30902\el_jstl_study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3032279653.index
+\el_jstl\src\main\java
+D:\work30902\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3032279653.index
+\el_jstl\src\main\java
+D:\work30902\el_jstl_study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\148785006.index
+\el_jstl\src\main\java
+D:\work30902\el_jstl_study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1469317260.index
+\01_mybatis\src\main\java
+D:\work30902\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\148785006.index
+\el_jstl\src\main\java
