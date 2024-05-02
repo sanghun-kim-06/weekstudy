@@ -13,16 +13,16 @@ import com.student.service.StudentService;
 import com.student.vo.StudentVO;
 
 /**
- * Servlet implementation class SearchByNameServlet
+ * Servlet implementation class SearchByGradeServlet
  */
-@WebServlet("/student/searchbyname.do")
-public class SearchByNameServlet extends HttpServlet {
+@WebServlet("/student/searchbygrade.do")
+public class SearchByGradeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchByNameServlet() {
+    public SearchByGradeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,8 +40,7 @@ public class SearchByNameServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		System.out.println(request.getParameter("studentName"));
-		List<StudentVO> list = new StudentService().searchByName(request.getParameter("studentName"));
+		List<StudentVO> list = new StudentService().searchByGrade(Integer.parseInt(request.getParameter("grade")));
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/view/student.jsp").forward(request, response);
 	}

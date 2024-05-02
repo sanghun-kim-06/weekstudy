@@ -3,15 +3,15 @@
 <mapper namespace="student">
 	<select id="selectAllStudent"
 		resultType="com.student.vo.StudentVO">
-			SELECT student_no,
-					student_name,
-					age,
-					grade,
-					classnumber,
-					height,
-					address,
-					phone,
-					gender
+			SELECT student_no
+				, student_name
+				, age
+				, grade
+				, classnumber
+				, height
+				, address
+				, phone
+				, gender
 			FROM student
 	</select>
 	<insert id="insertStudent" parameterType="com.student.vo.StudentVO">
@@ -25,5 +25,57 @@
 			, #{phone}
 			, #{gender})
 	</insert>
-
+	<select id="updateListStudent" parameterType="integer" resultType="com.student.vo.StudentVO">
+		SELECT student_no
+			, student_name
+			, age
+			, grade
+			, classnumber
+			, height
+			, address
+			, phone
+			, gender
+		FROM student
+		WHERE student_no = #{studentNo}
+	</select>
+	<select id="searchByName" parameterType="string" resultType="com.student.vo.StudentVO">
+		SELECT student_no
+			, student_name
+			, age
+			, grade
+			, classnumber
+			, height
+			, address
+			, phone
+			, gender
+		FROM student
+		WHERE student_name like '%${studentName}%' 
+	</select>
+	<update id="updateStudent" parameterType="com.student.vo.StudentVO">
+		UPDATE student SET student_name = #{studentName}
+			, age = #{age}
+			, grade = #{grade}
+			, classnumber = #{classnumber}
+			, height = #{hieght}
+			, address = #{address}
+			, phone = #{phone}
+			, gender = #{gender}
+		WHERE student_no = #{studentNo}
+	</update>
+	<delete id="deleteStudent" parameterType="integer">
+		DELETE FROM student WHERE student_no = #{studentNo}
+	</delete>
+	<select id="searchByGrade" parameterType="integer" resultType="com.student.vo.StudentVO">
+		SELECT student_no
+			, student_name
+			, age
+			, grade
+			, classnumber
+			, height
+			, address
+			, phone
+			, gender
+		FROM student
+		WHERE grade = #{grade}
+	</select>
 </mapper>

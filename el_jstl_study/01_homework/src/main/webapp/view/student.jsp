@@ -15,32 +15,60 @@
 <body>
 <c:choose>
 	<c:when test="${empty list }">
-		<script>
-			alert("현재 학생데이터를 불러오지 못했습니다!");
-		</script>
-	</c:when>
-	<c:otherwise>
 		<section class="m-3">
-			<form>
+			<form action="${path }/student/searchbyname.do" method="POST">
 				<div class="form-row d-flex">
 					<div class="col-4">
-						<input class="form-control form-control" type="text" name="name" placeholder="이름 조회">
+						<input class="form-control form-control" type="text" name="studentName" placeholder="이름 조회">
 					</div> 
 					<div class="col">
-						<button type="submit" href="${path }/student/searchbyname.do" class="btn btn-primary">이름 조회</button>
+						<button type="submit" class="btn btn-primary">이름 조회</button>
 					</div>
 				</div>
 			</form>
 			
 			<br>
 			
-			<form>
+			<form action="${path }/student/searchbygrade.do" method="POST">
 				<div  class="form-row d-flex">
 					<div class="col-4">
 						<input class="form-control form-control me-2" type="text" name="grade" placeholder="학년 조회">
 					</div> 
 					<div class="col">
-						<button type="submit" href="${path }/student/searchbygrade.do" class="btn btn-primary">학년 조회</button>
+						<button type="submit" class="btn btn-primary">학년 조회</button>
+					</div>
+				</div>
+			</form>
+		
+			<div class="d-flex justify-content-end">
+				<a href="${path }/student/addstudent.do" class="me-5 btn btn-primary">학생 등록</a>
+			</div>
+			
+			<p class="display-3 text-center">학생데이터를 불러오지 못했습니다.</p>
+		</section>
+	</c:when>
+	<c:otherwise>
+		<section class="m-3">
+			<form action="${path }/student/searchbyname.do" method="POST">
+				<div class="form-row d-flex">
+					<div class="col-4">
+						<input class="form-control form-control" type="text" name="studentName" placeholder="이름 조회">
+					</div> 
+					<div class="col">
+						<button type="submit" class="btn btn-primary">이름 조회</button>
+					</div>
+				</div>
+			</form>
+			
+			<br>
+			
+			<form action="${path }/student/searchbygrade.do" method="POST">
+				<div  class="form-row d-flex">
+					<div class="col-4">
+						<input class="form-control form-control me-2" type="text" name="grade" placeholder="학년 조회">
+					</div> 
+					<div class="col">
+						<button type="submit" class="btn btn-primary">학년 조회</button>
 					</div>
 				</div>
 			</form>

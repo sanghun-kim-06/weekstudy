@@ -1,8 +1,6 @@
 package com.student.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.student.service.StudentService;
-import com.student.vo.StudentVO;
 
 /**
- * Servlet implementation class SearchByNameServlet
+ * Servlet implementation class DeleteStudentServlet
  */
-@WebServlet("/student/searchbyname.do")
-public class SearchByNameServlet extends HttpServlet {
+@WebServlet("/student/deletestudent.do")
+public class DeleteStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchByNameServlet() {
+    public DeleteStudentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,19 +28,17 @@ public class SearchByNameServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		int result = new StudentService().deleteStudent(Integer.parseInt(request.getParameter("studentNo")));
+		response.sendRedirect(request.getContextPath()+"/student/searchall.do");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		System.out.println(request.getParameter("studentName"));
-		List<StudentVO> list = new StudentService().searchByName(request.getParameter("studentName"));
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/view/student.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

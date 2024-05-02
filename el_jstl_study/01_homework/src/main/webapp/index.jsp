@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="d-flex justify-content-center align-middle m-auto">
-	<a  class="btn btn-outline-primary btn-lg text-cetner" href="${path }/student/searchall.do">학생등록</a>
+	<a class="btn btn-outline-primary btn-lg text-cetner" href="${path }/student/searchall.do">학생등록</a>
 </div>
 </body>
 </html>

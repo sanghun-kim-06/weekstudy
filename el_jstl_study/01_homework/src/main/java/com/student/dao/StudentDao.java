@@ -12,15 +12,31 @@ public class StudentDao {
 		List<StudentVO> list = session.selectList("student.selectAllStudent");
 		return list;
 	}
+	
+	public List<StudentVO> searchByName(SqlSession session, String studentName) {
+		List<StudentVO> list = session.selectList("student.searchByName", studentName);
+		return list;
+	}
 
 	public int insertStudent(SqlSession session, StudentVO vo) {
 		int result = session.insert("student.insertStudent", vo);
 		return result;
 	}
 
-	public int updateStudent(SqlSession session, String studentNo) {
-		int result = session.update("student.updateStudent", studentNo);
-		return result;
+	public List<StudentVO> updateListStudent(SqlSession session, String studentNo) {
+		return session.selectList("student.updateListStudent", Integer.parseInt(studentNo));
+	}
+
+	public int updateStudent(SqlSession session, StudentVO vo) {
+		return session.update("student.updateStudent", vo);
+	}
+
+	public int deleteStudent(SqlSession session, int studentNo) {
+		return session.delete("student.deleteStudent", studentNo);
+	}
+
+	public List<StudentVO> searchByGrade(SqlSession session, int grade) {
+		return session.selectList("student.searchByGrade", grade);
 	}
 
 }
