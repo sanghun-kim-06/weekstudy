@@ -2,6 +2,9 @@ package com.mybatis.model.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.mybatis.model.vo.Student;
+import com.mybatis.model.vo.Student2;
+
 public class StudentDao {
 
 	public int insertStudent(SqlSession session) {
@@ -18,6 +21,23 @@ public class StudentDao {
 
 	public int insertStudentbyname(SqlSession session, String name) {
 		return session.insert("student.insertStudentbyname", name);
+	}
+
+	public int insertStudentAll(SqlSession session, Student vo) {
+		return session.insert("student.insertStudentAll", vo);
+	}
+
+	public int selectStudentCount(SqlSession session) {
+		/*
+		 * 조회할때엔 
+		 * selectOne() : 조회결과(resultset)이 0~1개 row를 가질때 사용
+		 * selectList() : 조회결과가 0~1개 이상의 row를 가질때 사용
+		 */
+		return session.selectOne("student.selectStudentCount");
+	}
+
+	public Student selectStudentByNo(SqlSession session, int studentNo) {
+		return session.selectOne("student.selectStudentByNo", studentNo);
 	}
 
 }

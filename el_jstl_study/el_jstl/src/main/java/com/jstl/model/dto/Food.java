@@ -18,22 +18,23 @@ public class Food {
 		this.flavor = flavor;
 	}
 	//alt + s + r + a + r
-	public String getName() {
+	String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	void setName(String name) {
 		this.name = name;
 	}
-	public int getPrice() {
+	int getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	void setPrice(int price) {
 		this.price = price;
 	}
-	public String getFlavor() {
+	String getFlavor() {
 		return flavor;
 	}
-	public void setFlavor(String flavor) {
+	void setFlavor(String flavor) {
 		this.flavor = flavor;
 	}
+	
 }

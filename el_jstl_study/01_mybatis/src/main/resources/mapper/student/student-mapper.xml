@@ -34,4 +34,42 @@
 									, '경기도 안양시'
 									, SYSDATE)
 	</insert>
+	<!--
+		dao에서 두번째 파라미터를 전달했을떄는 parameterType=""을 설정해준다
+		클래스를 parameterType으로 작성할때는 패키지명.클래스명으로 작성한다
+		파라미터로 객체가 넘어왔다면, #{필드명}으로 값을 가져올 수 있다.
+	 -->
+	<insert id="insertStudentAll" parameterType="com.mybatis.model.vo.Student">
+		INSERT INTO STUDENT VALUES(SEQ_STUDENT.NEXTVAL
+									, #{name}
+									, #{tel}
+									, #{email}
+									, #{address}
+									, SYSDATE)
+	</insert>
+	<!-- select태그의 속성 중
+		resultType : 매핑할 클래스의 필드가 컬럼명과 동일하거나 단일데이터를 가져올 때 사용
+		resultMap : 매핑할 클래스의 필드가 컬럼명과 다를때 사용 => resultMap태그를 이용해서 매핑용 객체를 선언
+	 -->
+	<select id="selectStudentCount" resultType="_int">
+		SELECT COUNT(*) FROM STUDENT
+	</select>
+	<!-- resultMap 선언하기
+		테이블컬럼명과 클래스의 필드명이 다를 때 매칭시켜주는 태그
+		id 태그 : pk컬럼에 대한 매칭을 할때 사용
+		result 태그 : 일반 커럼에 대한 매칭을 할때 사용
+		collection 태그 : has a 관계에 있는 클래스를 매칭할떄 (List타입)
+		association 태그 : has a 관계에 있는 클래스를 매칭할때 (일반클래스)
+	 -->
+	<resultMap id="studentMap" type="com.mybatis.model.vo.Student">
+		<id column="STUDENT_NO" property="no"/>
+		<result column="STUDENT_NAME" property="name"/>
+		<result column="STUDENT_TEL" property="tel"/>
+		<result column="STUDENT_EMAIL" property="email"/>
+		<result column="STUDENT_ADDR" property="address"/>
+		<result column="REG_DATE" property="enrollDate"/>
+	</resultMap>
+	<select id="selectStudentByNo" parameterType="_int" resultMap="studentMap">
+		SELECT * FROM STUDENT WHERE STUDENT_NO = #{studentNo}
+	</select>
 </mapper>
