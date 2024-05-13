@@ -35,6 +35,7 @@ public class StudentDataServlet extends HttpServlet {
 		int studentNo = Integer.parseInt(request.getParameter("no"));
 		Student s = new StudentService().selectStudentByNo(studentNo);
 		System.out.println(s);
+		request.setAttribute("vo", s);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/student/student.jsp");
 		rd.forward(request, response);
 	}

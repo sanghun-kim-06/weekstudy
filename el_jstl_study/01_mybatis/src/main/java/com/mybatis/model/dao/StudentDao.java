@@ -40,4 +40,12 @@ public class StudentDao {
 		return session.selectOne("student.selectStudentByNo", studentNo);
 	}
 
+	public int deleteStudent(SqlSession session, int no) {
+		return session.delete("student.deleteStudent", no);
+	}
+
+	public int updateStudent(SqlSession session, Student s) {
+		return session.update("student.updateStudent", s);
+	}
+
 }

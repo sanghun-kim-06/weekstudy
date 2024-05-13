@@ -72,4 +72,12 @@
 	<select id="selectStudentByNo" parameterType="_int" resultMap="studentMap">
 		SELECT * FROM STUDENT WHERE STUDENT_NO = #{studentNo}
 	</select>
+	<delete id="deleteStudent" parameterType="_int">
+		DELETE FROM STUDENT WHERE STUDENT_NO = #{no}
+	</delete>
+	<update id="updateStudent" parameterType="com.mybatis.model.vo.Student">
+		UPDATE STUDENT SET STUDENT_TEL = #{tel}
+			, STUDENT_EMAIL = #{email}
+		WHERE STUDENT_NO = #{no}
+	</update>
 </mapper>

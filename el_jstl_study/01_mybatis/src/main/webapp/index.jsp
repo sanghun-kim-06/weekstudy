@@ -46,5 +46,24 @@
 		<a href="${path }/student/studentdata.do?no=87">87번 학생 조회</a>
 	</h4>
 	<!-- 학생번호를 입력받아 학생 조회하기 -->
+	<h2>학생번호 입력해 조회하기</h2>
+	<form action="${path }/student/studentdata.do" method="get">
+		학생번호 : <input type="number" name="no"><br>
+		<input type="submit" value="조회하기">
+	</form>
+	
+	<h2>학생번호 입력해 삭제하기</h2>
+	<form action="${path }/student/studentdelete.do" method="get">
+		학생번호 : <input type="number" name="no"><br>
+		<input type="submit" value="삭제하기">
+	</form>
+	<h2>학생번호 입력해 수정하기</h2>
+	<form action="${path }/student/studentupdate.do" method="get">
+		학생번호 : <input type="number" name="no" required> <br>
+		전번 : <input type="number" name="tel"> <br>
+		이메일 : <input type="text" name="email"> <br>
+		<input type="submit" value="수정하기">
+	</form>
+
 </body>
 </html>

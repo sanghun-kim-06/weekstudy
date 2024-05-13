@@ -52,4 +52,22 @@ public class StudentService {
 		return s;
 	}
 
+	public int deleteStudent(int no) {
+		SqlSession session = getSession();
+		int result = dao.deleteStudent(session, no);
+		if(result > 0) session.commit();
+		else session.rollback();
+		session.close();
+		return result;
+	}
+
+	public int updateStudent(Student s) {
+		SqlSession session = getSession();
+		int result = dao.updateStudent(session, s);
+		if(result > 0) session.commit();
+		else session.rollback();
+		session.close();
+		return result;
+	}
+
 }

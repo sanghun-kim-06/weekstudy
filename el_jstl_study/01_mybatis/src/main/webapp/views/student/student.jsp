@@ -11,5 +11,9 @@
 	<div>
 		<h4>전체학생 수 : ${studentCount }</h4>
 	</div>
+	<div>
+		<h4>학생번호 : ${vo.no }</h4>
+		<h4>학생이름 : ${vo.name }</h4>
+	</div>
 </body>
 </html>
